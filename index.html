@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Julypop</title>
+    <meta charset="utf-8">
+    <link href="rootscc.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="js/btnAdd.js"></script>
+    <script src="js/querys.js"></script>
+    <script src="js/addNewResipe.js"></script>
+    <script src="js/btnMenu.js"></script>
+    <script src="js/btnOptions.js"></script>
+    <script src="js/footer.js"></script>
+    <script src="js/search.js"></script>
+</head>
+<body onload="init()">
+<!-- Шапка сайта -->
+<header>
+    <!-- поиск -->
+    <form id="searchform">
+        <input type="search" id="searchable" name="from_query" placeholder="I'm get ready for you..." onclick="initSeqrchAtribute()" />
+        <input type="button" id="btnsearch" value="search" onclick="beginSearch()" />
+    </form>
+    <!-- Конец навигации -->
+    <div id="paint">
+        <div id="btn_panel">
+            <button onclick="select = 'paint'" class="paint_panel">P</button>
+            <button onclick="select = 'erase'" class="paint_panel">E</button>
+            <button onclick="paint_clear()" class="paint_panel">C</button>
+
+            <input type="color" onchange="ctx.strokeStyle=event.target.value" value="#999999" autocomplete="off" class="paint_panel">
+            <select id="paint_size" onchange="ctx.lineWidth = this.options[this.selectedIndex].value" class="paint_panel">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+        <canvas id="paintBoard"  width="1920" height="260"></canvas>
+    </div>
+    <script src="js/canvas.js"></script>
+</header>
+<aside>
+    <button value="Up" id="btn_pageUp" onclick="pageUp()" class="btn_pageUp">Up</button>
+</aside>
+<!-- Конец шапки сайта -->
+<nav id="leftNav">
+    <menu type="context">
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Первые блюда')">Первые блюда</a>
+            <ul class="drop_menu">
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Супы')">Супы</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Крем-суп')">Крем-суп</a></li>
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Выпечка')">Выпечка</a>
+            <ul class="drop_menu">
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Хлеб')">хлеб</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Сладкие булочки')">Сладкие булочки</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Печенье')">Печенье</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Пироги')">Пироги</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Пирожки/Лепешки')">Пирожки/Лепешки</a></li>
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Десерты')">Десерты</a>
+            <ul class="drop_menu">
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Десерты')">Десерты</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Кексы/Маффины')">Кексы/Маффины</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Блины')">Блины</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Оладьи')">Оладьи</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Вафли')">Вафли</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Пончики')">Пончики</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Пирожные')">Пирожные</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Сладости')">Сладости</a></li>
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Торты')">Торты</a>
+            <ul class="drop_menu">
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Тарты')">Тарты</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Кремовые')">Кремовые</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Шоколадные')">Шоколадные</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Чизкейки')">Чизкейки</a></li>
+            </ul>
+        </li>        
+		<li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Батончики')">Батончики</a>
+            <ul class="drop_menu">
+            </ul>
+        </li>
+		<li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Завтраки')">Завтраки</a>
+            <ul class="drop_menu">
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Гарниры')">Гарниры</a>
+        <ul class="drop_menu">
+            <li><a href="#" onclick="queryForCategory('podcategoryes=Макароны')">Макароны</a></li>
+            <li><a href="#" onclick="queryForCategory('podcategoryes=Рис/Плов')">Рис/Плов</a></li>
+            <li><a href="#" onclick="queryForCategory('podcategoryes=Картофель')">Картофель</a></li>
+            <li><a href="#" onclick="queryForCategory('podcategoryes=Пицца/Тарт')">Пицца/Тарт</a></li>
+            <li><a href="#" onclick="queryForCategory('podcategoryes=Овощи')">Овощи</a></li>
+            <li><a href="#" onclick="queryForCategory('podcategoryes=Фрукты')">Фрукты</a></li>
+            <li><a href="#" onclick="queryForCategory('podcategoryes=Лепешки')">Лепешки</a></li>
+        </ul>
+		</li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Алкоголь')">Алкоголь</a>
+            <ul class="drop_menu">
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Консервация')">Консервация</a>
+            <ul class="drop_menu">
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Варенья/Джемы')">Варенья/Джемы</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Овощи')">Овощи</a></li>
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Закуски')">Закуски</a>
+            <ul class="drop_menu">
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Сыры')">Сыры</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Сырные')">Сырные</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Овощные')">Овощные</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Салаты')">Салаты</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Сэндвичи/Бургеры')">Сэндвичи/Бургеры</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Хлебные')">Хлебные</a></li>
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Соусы')">Соусы</a>
+            <ul class="drop_menu">
+				<li><a href="#" onclick="queryForCategory('podcategoryes=Соусы')">Соусы</a></li>
+				<li><a href="#" onclick="queryForCategory('podcategoryes=Кремы')">Кремы</a></li>
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Каши')">Каши</a>
+            <ul class="drop_menu">
+            </ul>
+        </li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Мясные блюда')">Мясные блюда</a>
+			<ul class="drop_menu">
+				<li><a href="#" onclick="queryForCategory('podcategoryes=Холодные')">Холодные</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Горячие')">Горячие</a></li>
+            </ul>
+		</li>
+        <li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Рыбные блюда')">Рыбные блюда</a></li>
+		<li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Напитки')">Напитки</a>
+			<ul class="drop_menu">
+				<li><a href="#" onclick="queryForCategory('podcategoryes=Кофе/чай')">Кофе/чай</a></li>
+                <li><a href="#" onclick="queryForCategory('podcategoryes=Смузи/коктейли')">Смузи/коктейли</a></li>
+            </ul>
+		</li>
+		<li class="list_menu"><a href="#" onclick="queryForCategory('categoryes=Азиатская кухня')">Азиатская кухня</a></li>
+        <li class="list_menu"><a href="#" onclick="queryForTenRec()">Последние рецепты</a></li>
+        <li class="list_menu"><a href="#" onclick="liked()">Закладки</a></li>
+    </menu>
+</nav>
+<main id="main">
+   
+</main>
+<div id="edits">
+    <button onclick="addRecept()" class="btnAdd">Добавить рецепт</button>
+</div>
+<footer><!-- Футер сайта -->
+    <p>
+        <label>
+            Last updated:
+            <time datetime="2012-08"    id="ftime">
+                August 2012
+            </time><br>
+                Sum recipe:
+                <label id="sum_resipe"></label>
+        </label>
+    </p>
+</footer>
+</body>
+</html>

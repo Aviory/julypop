@@ -1,0 +1,415 @@
+:root{
+
+}
+/* Тело */
+body {
+    margin: 0 auto;
+    background-color: #373737;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+main {
+    min-height: 0px;
+    margin: 0 auto;
+    width: 65%;
+    display: block;
+    margin-left: 50px;
+    float: left;
+    min-height: calc(100vh - 544px);
+}
+/* конец редакции тела */
+/* шапка */
+#paintBoard {
+    position: inherit;
+    width: auto;
+    height: auto;
+}
+#paint{
+    height: 260px;
+    width: 1920px;
+    background-image: url(res/headerbroad.jpg);
+    background-repeat:repeat-x;
+}
+#btn_panel{
+    position: absolute;
+}
+.paint_panel{
+    /*width: 37px;*/
+    /*height: 28px;*/
+    opacity: 0.4;
+    border-radius: 3px;
+}
+.paint_panel:hover{
+    opacity: 0.9;
+}
+/* стили поиска */
+#searchform{
+    position: absolute;
+    margin-top: 220px;
+    width: auto;
+    padding-left: 275px;
+}
+#searchable{
+    width: 385px;
+    border: none;
+    padding: 8px 80px 9px 15px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1), inset 0 1px 2px rgba(0,0,0,0.3);
+    background: #EEE;
+    font: 14px Tahoma, Arial, sans-serif;
+    color: rgba(93, 93, 93, 0.92);
+}
+#searchable:focus{
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2), inset 0 1px 2px rgba(0,0,0,0.4);
+    background: #E8E8E8;
+    color: #333;
+    border: none;
+    outline: none;
+}
+#btnsearch{
+    position: absolute;
+    top: 3px;
+    left: 578px;
+    width: 80px;
+    height: 30px ;
+    border-radius: 15px;
+    opacity: 0.5;
+    margin-right: 100px;
+}
+#btnsearch:hover{
+    opacity: 0.8;
+}
+.from_search{
+    width: auto;
+    border: none;
+    padding: 8px 8px 9px 15px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1), inset 0 1px 2px rgba(0,0,0,0.3);
+    background: #EEE;
+    font: 14px Tahoma, Arial, sans-serif;
+    color: rgba(93, 93, 93, 0.92);
+}
+/* конец стилей поиска */
+
+/* конец стилей шапки */
+
+/* навигация */
+#headerNav{
+    background-color: #eee;
+    border: 1px solid #ddd;
+    margin-bottom: 50px;
+    height: 56px;
+    width: 76%;
+}
+#leftNav {
+    float: left;
+    background-color: #eee;
+    border: 1px solid #373737;
+    margin-top: 50px;
+    margin-left: 25px;
+    height: 675px;
+    width: 200px;
+    background-image: url(res/headerbroad.jpg);
+    display: block;
+}
+#leftNavTen{
+    float: left;
+    background-color: #eee;
+    border: 1px solid #373737;
+    margin-top: 50px;
+    margin-left: 25px;
+    height: 555px;
+    width: 200px;
+    background-image: url(res/headerbroad.jpg);
+    display: block;
+}
+menu {
+    padding: 0;
+    position: relative;
+}
+.btn_pageUp{
+    position: fixed;
+    margin-left: 10px;
+    margin-top: 545px;
+    margin-bottom: 60px;
+    opacity: 0.4;
+    padding: 8px 8px 9px 9px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 15px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1), inset 0 1px 2px rgba(0,0,0,0.2);
+}
+.btn_pageUp:hover{
+    opacity: 0.9;
+}
+/* всплывающая навигация + */
+.list_menu{
+    position: relative;
+}
+.drop_menu {
+    position: absolute;
+    width: 100%;
+    left: 100%;
+    opacity: 0;
+    top: -9999em;
+    transition: 0.5s opacity;
+    background-image: url(res/headerbroad.jpg);
+}
+.list_menu:hover .drop_menu{
+    opacity: 1;
+    top: -8px;
+}
+.list_menu::after{
+    content: " ";
+    position: absolute;
+    border: 5px solid;
+    border-color:  transparent transparent transparent #AFF6F8;
+    top: 6em;
+    right: 0.7em;
+    transition: 0.5s;
+    opacity: 0;
+}
+.list_menu:hover::after {
+    opacity: 1;
+}
+/* всплывающая навигация - */
+#leftNav menu li{
+    float:none;
+    margin-left:27px;
+    font-size: 1px;
+}
+#leftNav menu a{
+    display: block;
+    font-size: 22px;
+    color: azure;
+    text-decoration: none;
+    font-family: Batang;
+    background-repeat: inherit;
+    width: 145px;
+    margin-top: 5px;
+    transition: 0.3s all;
+}
+#leftNav menu a:hover {
+    color: #9ae9ff;
+    background: repeat-y;
+}
+/* конец навигации */
+/* начало мейна */
+article {
+    float: left;
+    margin-bottom: 30px;
+    padding: 0 15px;
+    width: 98%;
+    overflow: hidden;
+    background-color: #dddddd;
+}
+aside{
+}
+/* секции рецепта */
+.ingridients{
+    float: left;
+    margin-bottom: 30px;
+    padding: 15px;
+    width: 30%;
+    overflow: hidden;
+}
+.cooking{
+    float: left;
+    margin-bottom: 10px;
+    padding: 0 15px;
+    width: 94%;
+    overflow: hidden;
+}
+.block_img {
+    float:right; /* Выравнивание по равому краю */
+    margin: 7px 7px 7px 0; /* Отступы вокруг картинки */
+    padding-right: 1px;
+    width: 420px;
+    height: 330px;
+    overflow: hidden;
+}
+.big_img{
+
+    height: 260px;
+    overflow: hidden;
+}
+.div_bigimg{
+    width: 400px;
+    height: 260px;
+    text-align: center;
+	background-color: gray;
+}
+.small_img{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 45px;
+    height: 30px;
+    transition: 0.2s all;
+    min-width: 45px;
+    min-height: 30px;
+    overflow: hidden;
+}
+.small_img:hover{
+    margin-left: 10px;
+    width: 50px;
+    height: 35px;
+    border: 2px solid azure;
+}
+.btn_option{
+    float: right;
+    width: 22px;
+    height: 22px;
+    margin-left: 7px;
+    margin-bottom: 5px;
+}
+.btn_ready_del{
+    float: right;
+
+    margin-right: 25px;
+    margin-bottom: 35px;
+}
+.btn_ready_del button{
+    width: 32px;
+    height: 22px;
+}
+.raiting input:checked ~ label, .raiting label, .raiting label:hover, .raiting label:hover ~ label {
+    background: url("res/doesnotsugar.png") no-repeat;
+}
+.raiting {
+    margin-top: 20px;
+    /*fix floating problems*/
+    overflow: hidden;
+    *zoom: 1;
+    /*end of fix floating problems*/
+
+    position: relative;
+    float: right;
+}
+
+.raiting input {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+
+    width: 43px;
+    height: 40px;
+
+    position: absolute;
+    top: 0;
+    z-index: 0;
+}
+
+.raiting input:checked ~ label {
+    background-position: 0 -38px;
+    height: 40px;
+    width: 43px;
+}
+
+.raiting label {
+    background-position: 0 0;
+    height: 40px;
+    width: 43px;
+    float: right;
+    cursor: pointer;
+    margin-right: 10px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.raiting label:hover, .raiting label:hover ~ label {
+    background-position: 0 -38px;
+    height: 40px;
+    width: 43px;
+}
+.raiting #star-0 {
+    left: 0px;
+}
+.raiting #star-1 {
+    left: 53px;
+}
+.raiting #star-2 {
+    left: 106px;
+}
+.raiting #star-3 {
+    left: 159px;
+}
+.raiting #star-4 {
+    left: 212px;
+}
+.raiting #star-5 {
+    left: 265px;
+}
+    /* конец секции рецепта */
+/* секция редактирования */
+#edits{
+    float:inherit;
+    width: 65%;
+    margin-bottom: 10px;
+    padding-left: 280px;
+
+}
+#edits .btnAdd{
+     float:inherit;
+     width: 120px;
+     height: 44px;
+     margin-left: 90px;
+     margin-top: 20px;
+     margin-bottom: 10px;
+ }
+#edits textarea{
+    float:inherit;
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+#edits select{
+    float:inherit;
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+#edits .add_img{
+    float: right;
+    margin-right: 15px;
+}
+#edits h2{
+    float:inherit;
+    margin-left: 55px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+.hides{
+    position: absolute;
+    opacity: 0;
+    top: -9999em;
+}
+.error input,
+.error textarea {
+    border: 1px solid red;
+}
+.error {
+    color: red;
+}
+/* конец секции редактирования */
+/* футер */
+footer {
+    background-color: #373737;
+    clear: both;
+    color: #fff;
+    padding: 50px 20px;
+    width: 1880px;
+    height: 100px;
+}
+footer small a {
+    color: #eff;
+}
+#sum_resipe{
+    margin-left: 10px;
+}
+/* конец футера */
+footer, nav, header, section, aside {
+    display: block;
+}
+/* сделать беграунд цветом-картинкой время дня */
