@@ -61,18 +61,18 @@ function getBackgroundImage() {
     var d    = new Date();
     var h    = d.getHours();
     if(h>=5 && h<8){
-        document.body.style.backgroundImage = "url(res/winter5-8.jpg)";
+        document.body.style.backgroundImage = "url(res/sammer5-8.jpg)";
     }
     if(h>=8 && h<11){
-        document.body.style.backgroundImage = "url(res/winter8-11.jpg)";
+        document.body.style.backgroundImage = "url(res/sammer8-11.jpg)";
     }
     if(h>=11 && h<16){
-        document.body.style.backgroundImage = "url(res/winter11-16.jpg)";
+        document.body.style.backgroundImage = "url(res/sammer11-16.jpg)";
     }
     if(h>=16 && h<21){
-        document.body.style.backgroundImage = "url(res/winter16-21.jpg)";
+        document.body.style.backgroundImage = "url(res/sammer16-21.jpg)";
     }
     if(h>=21 || h>=0 && h<5){
-        document.body.style.backgroundImage = "url(res/winter21-5.jpg)";
+        document.body.style.backgroundImage = "url(res/sammer21-5.jpg)";
     }
 }
