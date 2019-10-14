@@ -2,8 +2,8 @@
 $host = "localhost";
 $db   = "julypop_recipes";
 $charset = "UTF8";
-$user = "julypop_july";
-$pass ="uhbydbX63";
+$user = "";
+$pass ="";
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 $opt = array(
